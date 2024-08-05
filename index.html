@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <p id="recaptchaResponse"></p>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcB2h0qAAAAAHmqDSqZQuFj4SRKqp1Q98fLfnM4"></script>
+    <script>
+      grecaptcha.ready(function () {
+        grecaptcha
+          .execute("YOUR_SITE_KEY", { action: "homepage" })
+          .then(function (token) {
+            // Gửi token này cùng với form đến server
+            document.getElementById("recaptchaResponse").innerHTML = token;
+          });
+      });
+    </script>
+  </body>
+</html>
